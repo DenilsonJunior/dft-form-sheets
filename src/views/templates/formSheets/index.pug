@@ -1,0 +1,38 @@
+mixin formSheets()
+    .formSheets
+        form(method="post" action="" name="contact-form")
+            h3 Formulário Google Sheets
+
+            .flexInputs
+                .boxInput
+                    input(type="text" name="nome" placeholder="Nome" )
+                .boxInput
+                    input(type="email" name="email" placeholder="Email" )
+                .boxInput
+                    input(type="text" name="numero" placeholder="Número" )
+            
+            h4 Categorias:
+            .flexCategories
+                .btnCat
+                    input(type="checkbox" name="categories1" value="Cat1", id="cat1")
+                    label(for="cat1") Categoria 1
+                .btnCat
+                    input(type="checkbox" name="categories2" value="Cat2", id="cat2")
+                    label(for="cat2") Categoria 2
+                .btnCat
+                    input(type="checkbox" name="categories3" value="Cat3", id="cat3")
+                    label(for="cat3") Categoria 3
+            
+            h4 Genero:
+            .flexOptions
+                .option
+                    input(type="radio" name="options" value="masculino")
+                    label Masculino
+                .option
+                    input(type="radio" name="options" value="feminino")
+                    label Feminino
+                .option
+                    input(type="radio" name="options" value="infantil")
+                    label Infantil
+            
+            input(type="submit" value="Enviar" id="submit")
