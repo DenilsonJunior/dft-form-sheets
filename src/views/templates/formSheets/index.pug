@@ -1,38 +1,57 @@
 mixin formSheets()
     .formSheets
+        img.detal1(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_38_CIMA.jpg", alt="")
+        img.detal2(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_36_BAIXO.jpg", alt="")
+
         form(method="post" action="" name="contact-form")
-            h3 Formulário Google Sheets
+            img.imgForm(src="https://dafitistatic.dafiti.com.br/cms/onsite/2023/2023_10_16_16_09_30_logotipo-dafiti.gif", alt="logotipo animado Dafiti")
+            h1 Black Friday Dafiti 2024
+            p Cadastre-se para receber ofertas e benefícios exclusivos das melhores marcas antes de todo mundo durante a Black Friday Dafiti.
 
             .flexInputs
+                p *sujeito a alteração de período e local.
                 .boxInput
-                    input(type="text" name="nome" placeholder="Nome" )
+                    input(type="text" name="nome" placeholder="*Nome" required)
                 .boxInput
-                    input(type="email" name="email" placeholder="Email" )
+                    input(type="email" name="email" placeholder="*E-mail" required)
                 .boxInput
-                    input(type="text" name="numero" placeholder="Número" )
+                    input(type="text" name="numero" placeholder="Telefone (opcional):")
             
-            h4 Categorias:
             .flexCategories
-                .btnCat
-                    input(type="checkbox" name="categories1" value="Cat1", id="cat1")
-                    label(for="cat1") Categoria 1
-                .btnCat
-                    input(type="checkbox" name="categories2" value="Cat2", id="cat2")
-                    label(for="cat2") Categoria 2
-                .btnCat
-                    input(type="checkbox" name="categories3" value="Cat3", id="cat3")
-                    label(for="cat3") Categoria 3
+                p Quais são as categorias que você deseja receber ofertas?
+                .flex
+                    .btnCat
+                        input(type="checkbox" name="categories1" value="Cat1", id="cat1")
+                        label(for="cat1") Categoria 1
+                    .btnCat
+                        input(type="checkbox" name="categories2" value="Cat2", id="cat2")
+                        label(for="cat2") Categoria 2
+                    .btnCat
+                        input(type="checkbox" name="categories3" value="Cat3", id="cat3")
+                        label(for="cat3") Categoria 3
+                    .btnCat
+                        input(type="checkbox" name="categories3" value="Cat4", id="cat4")
+                        label(for="cat4") Categoria 4
+                    .btnCat
+                        input(type="checkbox" name="categories3" value="Cat5", id="cat5")
+                        label(for="cat5") Categoria 5
+                    .btnCat
+                        input(type="checkbox" name="categories3" value="Cat6", id="cat6")
+                        label(for="cat6") Categoria 6
             
-            h4 Genero:
             .flexOptions
-                .option
-                    input(type="radio" name="options" value="masculino")
-                    label Masculino
-                .option
-                    input(type="radio" name="options" value="feminino")
-                    label Feminino
-                .option
-                    input(type="radio" name="options" value="infantil")
-                    label Infantil
-            
-            input(type="submit" value="Enviar" id="submit")
+                p Selecione suas categorias preferidas pra compor o seu look ou dar de presente.
+                .flex
+                    .option
+                        input(type="radio" name="options" value="feminino")
+                        label Feminino
+                    .option
+                        input(type="radio" name="options" value="masculino")
+                        label Masculino
+                    .option
+                        input(type="radio" name="options" value="infantil")
+                        label Infantil
+
+            .flexButton
+                p *Ao clicar em ENVIAR, declaro que li e concordo com as <a href="https://www.dafitigroup.com/politica-de-privacidade">Políticas de Privacidade</a>.
+                input(type="submit" value="ENVIAR" id="submit")

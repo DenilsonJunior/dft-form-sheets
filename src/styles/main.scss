@@ -31,34 +31,30 @@
     h2,
     h3,
     h4 {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
+        font-family: "Inter", sans-serif;
         font-style: normal;
-        font-size: 1.5vw;
         @media (max-width: 768px) {
-            font-size: 4vw;
+            // font-size: 4vw;
         }
     }
     
     p, label, li {
-        font-family: "Baskervville", serif;
-        font-weight: 400;
+        font-family: "Inter", sans-serif;
+        font-weight: 200;
         font-style: normal;
-        line-height: 1.8vw;
-        text-align: justify;
-        font-size: 1.4vw;
+        // line-height: 1.8vw;
         @media (max-width: 1050px) {
-            font-size: 1.5vw;
+            // font-size: 1.5vw;
         }
         @media (max-width: 768px) {
-            font-size: 4vw;
-            line-height: 5.5vw;
+            // font-size: 4vw;
+            // line-height: 5.5vw;
         }
     }
 
     a {
         p {
-            font-family: "Poppins", sans-serif;
+            font-family: "Inter", sans-serif;
             font-weight: 700;
             font-style: normal;
             font-style: normal;
@@ -69,99 +65,6 @@
         font-style: italic;
         b {
             font-weight: bold;
-        }
-    }
-
-    .contentReturn {
-        position: relative;
-        .flexRight {
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            position: sticky;
-            top: 55vh;
-            z-index: 2;
-            pointer-events: none;
-            
-            .btnReturn {
-                pointer-events: initial;
-                position: relative;
-                border: none;
-                margin-right: 1vw;
-                width: 3.2vw;
-                background-color: transparent;
-                cursor: pointer;
-                transition-duration: .3s;
-                @media (max-width: 768px) {
-                    width: 11vw;
-                    margin-right: 1.5vw;
-                }
-                &:hover {
-                    transform: scale(1.1);
-                }
-    
-                img {
-                    display: block;
-                    width: 100%;
-                    background-color: rgba(255, 255, 255, .8);
-                    border-radius: 100%;
-                    backdrop-filter: blur(2px);
-                }
-            }
-        }
-    }
-
-    .mainTitle {
-        margin: 0 0 2vw;
-        @media (max-width: 768px) {
-            margin: 0 0 5vw;
-        }
-        
-        .line {
-            width: 80%;
-            height: 0.15rem;
-            background-color: black;
-            margin: 0 auto 1vw;
-            position: relative;
-            display: flex;
-            align-items: center;
-            @media (max-width: 768px) {
-                margin: 5vw auto 2vw;
-            }
-
-            
-            &::after,
-            &::before {
-                content: '';
-                width: 0.5rem;
-                height: 0.5rem;
-                background-color: black;
-                position: absolute;
-                border-radius: 50%;
-            }
-            
-            &::after {
-                left: 0;
-            }
-            
-            &::before {
-                right: 0;
-            }
-        }
-        
-        h2,
-        h3 {
-            width: 100%;
-            text-align: center;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 1vw;
-            margin: 0 auto;
-            font-size: 2.2vw;
-            @media (max-width: 768px) {
-                font-size: 5vw;
-            }
         }
     }
 }

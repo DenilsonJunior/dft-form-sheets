@@ -1,129 +1,296 @@
 .formSheets {
-    width: 70%;
-    padding: 5vw;
-    border: .5vw solid red;
-    border-radius: 5vw;
-    // background-color: #003b5b;
+    width: calc(100% - 10vw);
+    max-width: 70vw;
+    padding: 6vw 5vw;
+    background-color: black;
     margin: 5vw auto;
-
-    h3 {
-        margin-bottom: 2vw;
-        // color: white;
+    position: relative;
+    @media (max-width: 768px) {
+        max-width: 100%;
+        width: calc(100% - 10%);
+        margin: 5% auto;
+        padding: 10vw 5vw;
     }
 
-    .flexInputs {
+    .detal1, .detal2 {
+        position: absolute;
+        animation: transitionOpacity infinite 3s;
+    }
+    .detal1 {
+        top: 0;
+        right: 0;
+        width: 35vw;
+    }
+    .detal2 {
+        bottom: 0;
+        left: 0;
+        width: 40vw;
+        animation-delay: 1s;
+    }
+
+    @keyframes transitionOpacity {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: .3;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    form {
+        z-index: 1;
+        position: relative;
         display: flex;
         flex-direction: column;
-        gap: 1vw;
-        margin-bottom: 1vw;
-        .boxInput {
-            input {
-                width: 100%;
-                border: solid black .5vw;
-                padding: .5vw;
+        align-items: center;
+        .imgForm {
+            margin: 0 auto;
+            width: 10vw;
+            @media (max-width: 768px) {
+                width: 20vw;
+            }
+        }
+    
+        h1 {
+            margin: 1.2vw 0 .8vw;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: white;
+            font-size: 2.9vw;
+            @media (max-width: 768px) {
+                font-size: 5vw;
+                margin: 4vw 0 1vw;
+            }
+        }
+    
+        p {
+            max-width: 40vw;
+            text-align: center;
+            font-size: 1.02vw;
+            color: white;
+            @media (max-width: 768px) {
+                max-width: 100%;
                 font-size: 3vw;
             }
         }
-    }
 
-    h4 {
-        margin-bottom: 1vw;
-    }
+        input,
+        label {
+            font-size: 1vw;
+            @media (max-width: 768px) {
+                font-size: 3vw;
+            }
+        }
+    
+        .flexInputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1vw;
+            margin: 5vw 0 0;
+            @media (max-width: 768px) {
+                width: 100%;
+                gap: 2vw;
+                margin: 12vw 0 0;
+            }
 
-    .flexCategories {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1vw;
-
-        .btnCat {
-            width: fit-content;
-            position: relative;
-            display: block;
+            p {
+                color: #767676;
+                margin: 0 0 .8vw;
+                font-weight: 400;
+            }
+            .boxInput {
+                width: 100%;
+                input {
+                    background-color: black;
+                    width: 30vw;
+                    border: solid white 1px;
+                    padding: 1.2vw 1.5vw;
+                    border-radius: 10vw;
+                    color: white;
+                    font-size: 1.2vw;
+                    @media (max-width: 768px) {
+                        font-size: 4vw;
+                        width: 100%;
+                        padding: 2vw 3vw;
+                    }
+                    &:-internal-autofill-selected {
+                        appearance: menulist-button;
+                        color: fieldtext !important;
+                        background-color: black !important;
+                    }
+                }
+            }
+        }
+    
+        .flexCategories {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1vw;
+            margin: 4vw 0 0;
+            @media (max-width: 768px) {
+                gap: 2vw;
+                margin: 12vw 0 0;
+            }
+            p {
+                margin: 0 0 .4vw;
+            }
+            .flex {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1vw;
+                @media (max-width: 768px) {
+                    gap: 2vw;
+                }
+                .btnCat {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
             
-            input {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                cursor: pointer;
-    
-                &:checked {
-                    ~ label {
-                        background-color: red;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        &:checked {
+                            ~ label {
+                                background-color: white;
+                                color: black;
+                                font-weight: 500;
+                            }
+                        }
                     }
-                }
-            }
-    
-            label {
-                background-color: #0005;
-                border: solid black .5vw;
-                width: 100%;
-                height: 100%;
-                position: relative;
-                pointer-events: none;
-                margin: 0;
-                padding: 1vw;
-                font-size: 3vw;
-    
-                &::before {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .flexOptions {
-        display: flex;
-        gap: 1vw;
-        .option {
-            position: relative;
-            label {
-                background-color: #0005;
-                border: solid black .5vw;
-                width: 100%;
-                height: 100%;
-                position: relative;
-                pointer-events: none;
-                margin: 0;
-                padding: 1vw;
-                font-size: 3vw;
-    
-                &::before {
-                    display: none;
-                }
-            }
-
-            input[type='radio'] {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                top: 0;
-                cursor: pointer;
-                opacity: 0;
-    
-                &:checked {
-                    ~ label {
-                        background-color: red;
+            
+                    label {
+                        background-color: black;
+                        color: white;
+                        border: solid white 1px;
+                        border-radius: 10vw;
+                        padding: .5vw 1.5vw;
+                        text-align: center;
+                        width: 100%;
+                        position: relative;
+                        pointer-events: auto;
+                        cursor: pointer;
+                        @media (max-width: 768px) {
+                            padding: 1vw 2.5vw;
+                        }
                     }
                 }
             }
         }
-    }
+        
+        .flexOptions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1vw;
+            margin: 4vw 0 0;
+            @media (max-width: 768px) {
+                gap: 2vw;
+                margin: 12vw 0 0;
+            }
+            p {
+                margin: 0 0 .4vw;
+            }
+            .flex {
+                display: flex;
+                gap: 1vw;
+                @media (max-width: 768px) {
+                    gap: 2vw;
+                }
+                .option {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    label {
+                        background-color: black;
+                        color: white;
+                        border: solid white 1px;
+                        border-radius: 10vw;
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        pointer-events: none;
+                        padding: .5vw 1.5vw;
+                        @media (max-width: 768px) {
+                            padding: 1vw 2.5vw;
+                        }
+            
+                        &::before {
+                            display: none;
+                        }
+                    }
+        
+                    input[type='radio'] {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        cursor: pointer;
+                        opacity: 0;
+            
+                        &:checked {
+                            ~ label {
+                                background-color: white;
+                                color: black;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .flexButton {
+            width: 100%s;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1vw;
+            margin: 4vw 0 0;
+            @media (max-width: 768px) {
+                gap: 3vw;
+                margin: 10vw 0 0;
+            }
+            p {
+                margin: 0 0 .4vw;
+                a {
+                    color: white;
+                }
+            }
 
-    #submit {
-        border: none;
-        background-color: orangered;
-        border: solid black .5vw;
-        color: white;
-        padding: 1vw;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 4vw;
-        font-size: 3vw;
-
-        &:hover {
-            background-color: #333333;
+            #submit {
+                border: none;
+                background-color: #D63F98;
+                color: white;
+                padding: .6vw 2vw;
+                cursor: pointer;
+                width: fit-content;
+                margin: 0 auto;
+                border-radius: 10vw;
+                border: solid white 1px;
+                font-style: italic;
+                @media (max-width: 768px) {
+                    padding: 1.5vw 4.5vw;
+                }
+        
+                &:hover {
+                    background-color: #333333;
+                }
+            }
         }
     }
 }
