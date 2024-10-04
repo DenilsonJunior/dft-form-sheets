@@ -3,7 +3,7 @@
     max-width: 70vw;
     padding: 6vw 5vw;
     background-color: black;
-    margin: 5vw auto;
+    margin: 2vw auto;
     position: relative;
     @media (max-width: 768px) {
         max-width: 100%;
@@ -33,7 +33,7 @@
             opacity: 1;
         }
         50% {
-            opacity: .3;
+            opacity: .5;
         }
         100% {
             opacity: 1;
