@@ -7,20 +7,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const nome = form.nome.value;
         const email = form.email.value;
-        // const numero = form.numero.value;
+        const numero = form.numero.value;
 
         // Coletar todos os checkboxes de categorias
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        const categorias = Array.from(checkboxes).map(checkbox => checkbox.value);
+        const checkboxes1 = document.querySelectorAll('.flexCategories input[type="checkbox"]:checked');
+        const categorias = Array.from(checkboxes1).map(checkbox => checkbox.value);
         
         // Coletar o gênero usando o nome correto
-        const genero = document.querySelector('input[name="options"]:checked');
+        const checkboxes2 = document.querySelectorAll('.flexOptions input[type="checkbox"]:checked');
+        const genero = Array.from(checkboxes2).map(checkbox => checkbox.value);
 
         // Log dos valores
-        // console.log('Nome:', nome);
-        // console.log('Email:', email);
-        // console.log('Número:', numero);
-        // console.log('Categorias:', categorias);
+        console.log('Nome:', nome);
+        console.log('Email:', email);
+        console.log('Número:', numero);
+        console.log('Categorias:', categorias);
+        console.log('Gênero:', genero);
         // console.log('Gênero:', genero ? genero.value : 'Nenhum selecionado');
 
         // Validações
@@ -28,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             alert("Nome inválido.");
             return;
         }
-        // if (!validarNumero(numero)) {
-        //     alert("Número deve ter exatamente 11 dígitos.");
-        //     return;
-        // }
+        if (!validarNumero(numero)) {
+            alert("Número deve ter no minimo 10 e maximo de 11 dígitos.");
+            return;
+        }
         if (!validarEmail(email)) {
             alert("Email inválido.");
             return;
@@ -40,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
             alert("Selecione pelo menos uma categoria.");
             return;
         }
-        if (!genero) {
-            alert("Selecione um gênero.");
+        if (!validarGenero(genero)) {
+            alert("Selecione pelo menos um gênero.");
             return;
         }
 
@@ -68,10 +70,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return nome.length >= 2 && regex.test(nome);
     }
 
-    // function validarNumero(numero) {
-    //     const regex = /^\d{11}$/;
-    //     return regex.test(numero);
-    // }
+    function validarNumero(numero) {
+        // Permite entre 10 e 11 dígitos, mas ignora caracteres não numéricos
+        const apenasNumeros = numero.replace(/\D/g, ''); // Remove tudo que não é número
+        const regex = /^\d{10,11}$/; // Regex para 10 ou 11 dígitos
+    
+        if (regex.test(apenasNumeros)) {
+            return true; // Válido
+        } else {
+            return false; // Inválido
+        }
+    }
 
     function validarEmail(email) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,5 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validarCategorias(categorias) {
         return categorias.length > 0;
+    }
+
+    function validarGenero(genero) {
+        return genero.length > 0;
     }
 });

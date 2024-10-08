@@ -1,20 +1,21 @@
-mixin formSheets()
-    .formSheets
-        img.detal1(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_08_14_56_45_CIMA.svg", alt="")
-        img.detal2(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_08_14_56_43_BAIXO.svg", alt="")
+mixin formSheetsBlack()
+    .formSheetsBlack
+        //- img.detal1(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_38_CIMA.jpg", alt="")
+        //- img.detal2(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_36_BAIXO.jpg", alt="")
 
         form(method="post" action="" name="contact-form")
-            img.imgForm(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_08_14_55_08_03.gif", alt="logotipo animado Dafiti")
-            h1 Black Friday Dafiti 2024
-            p Receba as melhores ofertas, descontos e cupons exclusivos das melhores marcas antes de todo mundo. Cadastre-se na Black Friday Dafiti 2024.
+            h1 <strong>OFERTAS</strong> EXCLUSIVAS
+            p.textW Cadastre-se para receber ofertas e benefícios exclusivos das melhores marcas antes de todo mundo durante a Black Friday Dafiti.
 
             .flexInputs
-                .boxInput
-                    input(type="text" name="nome" placeholder="*Nome" required)
-                .boxInput
-                    input(type="email" name="email" placeholder="*E-mail" required)
-                .boxInput
-                    input(type="number" name="numero" placeholder="*(DDD)9999-9999:" required)
+                p *sujeito a alteração de período e local.
+                .flex
+                    .boxInput
+                        input(type="text" name="nome" placeholder="*Nome" required)
+                    .boxInput
+                        input(type="email" name="email" placeholder="*E-mail" required)
+                    .boxInput
+                        input(type="number" name="numero" placeholder="*(DDD)9999-9999:" required)
             
             .flexCategories
                 p Quais são as categorias que você deseja receber ofertas?
@@ -52,5 +53,5 @@ mixin formSheets()
                         label(for="infantil") Infantil
 
             .flexButton
-                p *Ao clicar em ENVIAR, declaro que li e concordo com as <a target="_blank" href="https://www.dafitigroup.com/politica-de-privacidade">Políticas de Privacidade</a> e os <a target="_blank" href="https://www.dafitigroup.com/termos-de-uso">Termos e condições de uso</a>.
+                p.textW *Ao clicar em ENVIAR, declaro que li e concordo com as <a target="_blank" href="https://www.dafitigroup.com/politica-de-privacidade">Políticas de Privacidade</a> e os <a target="_blank" href="https://www.dafitigroup.com/termos-de-uso">Termos e condições de uso</a>.
                 input(type="submit" value="ENVIAR" id="submit")
