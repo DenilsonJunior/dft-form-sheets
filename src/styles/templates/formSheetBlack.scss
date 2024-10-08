@@ -96,6 +96,12 @@
                 font-size: 14px;
             }
         }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none; /* Remove a aparência padrão */
+            margin: 0; /* Remove a margem */
+        }
     
         .flexInputs {
             display: flex;
@@ -103,6 +109,7 @@
             align-items: center;
             gap: 1vw;
             margin: 50px 0 0;
+            width: 100%;
             @media (max-width: 768px) {
                 width: 100%;
                 gap: 2vw;
@@ -115,10 +122,10 @@
             .flex {
                 display: flex;
                 gap: 1vw;
-                width: 100%;
                 @media (max-width: 768px) {
                     flex-direction: column;
                     gap: 2vw;
+                    width: 90%;
                 }
                 .boxInput {
                     width: 100%;
@@ -131,6 +138,9 @@
                         border-radius: 10vw;
                         color: white;
                         // font-size: 1.2vw;
+                        @media (max-width: 1100px) {
+                            width: 28vw;
+                        }
                         @media (max-width: 768px) {
                             // font-size: 4vw;
                             width: 100%;
@@ -141,6 +151,15 @@
                             appearance: menulist-button;
                             color: fieldtext !important;
                             background-color: black !important;
+                        }
+                        &:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0 1000px white inset !important;
+                            -webkit-text-fill-color: black !important;
+                        }
+                        &:-internal-autofill-selected {
+                            appearance: menulist-button;
+                            color: black !important;
+                            background-color: white !important;
                         }
                     }
                 }
@@ -182,12 +201,16 @@
                         position: absolute;
                         left: 0;
                         top: 0;
-                        &:checked,
-                        &:hover {
+                        &:checked {
                             ~ label {
                                 background-color: white;
                                 color: black;
-                                font-weight: 500;
+                            }
+                        }
+                        &:hover {
+                            ~ label {
+                                background-color: #474747;
+                                color: white;
                             }
                         }
                     }
