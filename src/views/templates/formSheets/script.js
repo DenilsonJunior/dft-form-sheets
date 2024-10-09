@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const genero = Array.from(checkboxes2).map(checkbox => checkbox.value);
 
         // Log dos valores
-        console.log('Nome:', nome);
-        console.log('Email:', email);
-        console.log('Número:', numero);
-        console.log('Categorias:', categorias);
-        console.log('Gênero:', genero);
+        // console.log('Nome:', nome);
+        // console.log('Email:', email);
+        // console.log('Número:', numero);
+        // console.log('Categorias:', categorias);
+        // console.log('Gênero:', genero);
         // console.log('Gênero:', genero ? genero.value : 'Nenhum selecionado');
 
         // Validações
@@ -69,6 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const regex = /^[A-Za-zÀ-ÿ\s]+$/;
         return nome.length >= 2 && regex.test(nome);
     }
+
+    const inputTelefone = document.getElementById('telefone');
+
+    inputTelefone.addEventListener('input', function() {
+        let value = this.value; // Obtenha o valor atual do input
+        if (!value) return; // Retorna se o valor estiver vazio
+
+        value = value.replace(/\D/g, ''); // Remove não dígitos
+        value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Adiciona o código de área
+        value = value.replace(/(\d)(\d{4})$/, "$1-$2"); // Adiciona o traço após os 4 dígitos
+
+        this.value = value; // Atualiza o valor do input
+    });
 
     function validarNumero(numero) {
         // Permite entre 10 e 11 dígitos, mas ignora caracteres não numéricos

@@ -14,7 +14,7 @@ mixin formSheetsBlack()
                     .boxInput
                         input(type="email" name="email" placeholder="*E-mail" required)
                     .boxInput
-                        input(type="number" name="numero" placeholder="*(DDD)9999-9999:" required)
+                        input#telefone(type="text" name="numero" placeholder="*(DDD) 99999-9999" maxlength="15" required)
             
             .flexCategories
                 p Quais são as categorias que você deseja receber ofertas?
