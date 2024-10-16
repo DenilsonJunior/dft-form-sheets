@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw0slY3-HzeN8bhmT6jqXi2lWMq0KjkqoZcmYnvZZ4oYG_aY-zNdjHJujAbZ4uabPeF1Q/exec';
     const form = document.forms['contact-form'];
     const loadingElement = document.querySelector('.loading');
+    const modal = document.querySelector('.modal-dados');
+    const closeModal = document.querySelector('.modal-fechar');
+    
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
 
     form.addEventListener('submit', e => {
         loadingElement.style.display = 'flex';
@@ -62,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => {
                 if (response.ok) {
                     loadingElement.style.display = 'none';
-                    alert("Dado enviado com sucesso!");
+                    modal.style.display = 'flex';
+                    // alert("Dado enviado com sucesso!");
                     form.reset();
                 } else {
                     throw new Error('Erro ao enviar os dados.');

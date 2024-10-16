@@ -1,4 +1,4 @@
-mixin formSheetsBlack()
+mixin formSheetsBlack(campanha)
     .formSheetsBlack
         //- img.detal1(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_38_CIMA.jpg", alt="")
         //- img.detal2(src="https://dafitistatic.dafiti.com.br/cms/2024_10_04_15_55_36_BAIXO.jpg", alt="")
@@ -7,6 +7,7 @@ mixin formSheetsBlack()
             h1 <strong>OFERTAS</strong> EXCLUSIVAS
             p.textW Cadastre-se para receber ofertas e benefícios exclusivos das melhores marcas antes de todo mundo durante a Black Friday Dafiti.
 
+            .campanha=campanha
             .flexInputs
                 .flex
                     .boxInput
@@ -54,3 +55,12 @@ mixin formSheetsBlack()
             .flexButton
                 p.textW *Ao clicar em ENVIAR, declaro que li e concordo com as <a target="_blank" href="https://www.dafitigroup.com/politica-de-privacidade">Políticas de Privacidade</a> e os <a target="_blank" href="https://www.dafitigroup.com/termos-de-uso">Termos e condições de uso</a>.
                 input(type="submit" value="ENVIAR" id="submit")
+
+        .loading
+            img.imgLoading(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_16_09_38_20_kOnzy.gif", alt="")
+
+        .modal-dados
+            .boxModal
+                p.textModal Dados enviados com sucesso!
+                button.modal-fechar
+                    p Fechar
