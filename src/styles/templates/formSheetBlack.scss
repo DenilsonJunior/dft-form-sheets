@@ -207,10 +207,13 @@
                                 color: black;
                             }
                         }
-                        &:hover {
-                            ~ label {
-                                background-color: #474747;
-                                color: white;
+
+                        @media (min-width: 768px) {
+                            &:hover {
+                                ~ label {
+                                    background-color: #474747;
+                                    color: white;
+                                }
                             }
                         }
                     }
@@ -269,8 +272,10 @@
                     padding: 1.5vw 4.5vw;
                 }
         
-                &:hover {
-                    background-color: #333333;
+                @media (min-width: 768px) {
+                    &:hover {
+                        background-color: #333333;
+                    }
                 }
             }
         }
@@ -357,8 +362,10 @@
                     text-transform: lowercase;
                 }
 
-                &:hover {
-                    background-color: #333333;
+                @media (min-width: 768px) {
+                    &:hover {
+                        background-color: #333333;
+                    }
                 }
             }
         }
