@@ -1,4 +1,4 @@
-mixin formSheets()
+mixin formSheets(campanha)
     .formSheets
         img.detal1(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_08_15_42_54_CIMA-16.28.28.jpg", alt="")
         img.detal2(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_08_15_42_52_BAIXO-16.28.28.jpg", alt="")
@@ -8,6 +8,7 @@ mixin formSheets()
             h1 Black Friday Dafiti 2024
             p Receba as melhores ofertas, descontos e cupons exclusivos das melhores marcas antes de todo mundo. Cadastre-se na Black Friday Dafiti 2024.
 
+            .campanha=campanha
             .flexInputs
                 .boxInput
                     input(type="text" name="nome" placeholder="*Nome" required)
@@ -54,3 +55,6 @@ mixin formSheets()
             .flexButton
                 p *Ao clicar em ENVIAR, declaro que li e concordo com as <a target="_blank" href="https://www.dafitigroup.com/politica-de-privacidade">Políticas de Privacidade</a> e os <a target="_blank" href="https://www.dafitigroup.com/termos-de-uso">Termos e condições de uso</a>.
                 input(type="submit" value="ENVIAR" id="submit")
+        
+        .loading
+            img.imgLoading(src="https://dafitistatic.dafiti.com.br/cms/black-dafiti/2024_10_16_09_38_20_kOnzy.gif", alt="")

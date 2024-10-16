@@ -1,29 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbw0slY3-HzeN8bhmT6jqXi2lWMq0KjkqoZcmYnvZZ4oYG_aY-zNdjHJujAbZ4uabPeF1Q/exec';
     const form = document.forms['contact-form'];
+    const loadingElement = document.querySelector('.loading');
 
     form.addEventListener('submit', e => {
+        loadingElement.style.display = 'flex';
+
         e.preventDefault();
 
         const nome = form.nome.value;
         const email = form.email.value;
         const numero = form.numero.value;
+        const campanha = document.querySelector('.campanha').textContent;
+        
+        // Obtendo a data atual formatada
+        const dataAtual = new Date();
+        const dia = String(dataAtual.getDate()).padStart(2, '0');
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+        const ano = dataAtual.getFullYear();
+        const dataFormatada = `${dia}/${mes}/${ano}`;
 
         // Coletar todos os checkboxes de categorias
         const checkboxes1 = document.querySelectorAll('.flexCategories input[type="checkbox"]:checked');
         const categorias = Array.from(checkboxes1).map(checkbox => checkbox.value);
         
-        // Coletar o gênero usando o nome correto
+        // Coletar o gênero
         const checkboxes2 = document.querySelectorAll('.flexOptions input[type="checkbox"]:checked');
         const genero = Array.from(checkboxes2).map(checkbox => checkbox.value);
-
-        // Log dos valores
-        // console.log('Nome:', nome);
-        // console.log('Email:', email);
-        // console.log('Número:', numero);
-        // console.log('Categorias:', categorias);
-        // console.log('Gênero:', genero);
-        // console.log('Gênero:', genero ? genero.value : 'Nenhum selecionado');
 
         // Validações
         if (!validarNome(nome)) {
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         if (!validarNumero(numero)) {
-            alert("Número deve ter no minimo 10 e maximo de 11 dígitos.");
+            alert("Número deve ter no mínimo 10 e máximo de 11 dígitos.");
             return;
         }
         if (!validarEmail(email)) {
@@ -51,11 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const categoriesString = categorias.join(', ');
         const formData = new FormData(form);
         formData.append('categoriesString', categoriesString);
+        formData.append('campanha', campanha); // Adiciona a campanha
+        formData.append('data', dataFormatada); // Adiciona a data
 
         // Envio do formulário
         fetch(scriptURL, { method: 'POST', body: formData })
             .then(response => {
                 if (response.ok) {
+                    loadingElement.style.display = 'none';
                     alert("Dado enviado com sucesso!");
                     form.reset();
                 } else {
@@ -88,11 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const apenasNumeros = numero.replace(/\D/g, ''); // Remove tudo que não é número
         const regex = /^\d{10,11}$/; // Regex para 10 ou 11 dígitos
     
-        if (regex.test(apenasNumeros)) {
-            return true; // Válido
-        } else {
-            return false; // Inválido
-        }
+        return regex.test(apenasNumeros); // Válido ou inválido
     }
 
     function validarEmail(email) {
@@ -108,3 +110,4 @@ document.addEventListener('DOMContentLoaded', function () {
         return genero.length > 0;
     }
 });
+
